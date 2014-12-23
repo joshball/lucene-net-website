@@ -44,7 +44,7 @@ goto exit
     call mimosa clean --force
     call mimosa build -om
     rmdir /S /Q dist
-    xcopy /S /Q public dist\
+    xcopy /S /Q built dist\
     copy views\index-optimize.html dist\index.html
 
 :exit

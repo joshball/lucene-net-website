@@ -18,7 +18,6 @@ what
 *.sublime-workspace
 
 # Output folder
-/public
 /dist
 /built
 

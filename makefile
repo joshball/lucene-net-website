@@ -40,7 +40,7 @@ dist:
 	@mimosa clean --force
 	@$(build) -om
 	rm -Rf dist
-	cp -R public dist
+	cp -R built dist
 	cp views/index-optimize.html dist/index.html
 
 distribute:
@@ -48,5 +48,5 @@ distribute:
 	@mimosa clean --force
 	@$(build) -om
 	rm -Rf dist
-	cp -R public dist
+	cp -R built dist
 	cp views/index-optimize.html dist/index.html

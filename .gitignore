@@ -27,8 +27,8 @@ what
 .mimosa
 
 # Output folder
-/built
 /dist
+/built
 
 # Numerous always-ignore extensions
 *~

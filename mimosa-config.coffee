@@ -17,14 +17,19 @@ exports.config =
   ]
 
   watch:
-    javascriptDir: 'javascripts/app'
+    compiledDir: 'built'
+    javascriptDir: 'scripts/app'
 
   requireBuildTextPluginInclude:
     pluginPath: 'text'
     extensions: ['html']
 
+  vendor:
+    javascripts: 'scripts/vendor'
+    stylesheets: 'styles/vendor'
+
   requireBuildInclude:
-    folder:"javascripts"
+    folder:"scripts"
     patterns: ['app/**/*.js', 'vendor/durandal/**/*.js']
 
   bower:
@@ -52,8 +57,8 @@ exports.config =
   combine:
     folders: [
       {
-        folder:'stylesheets'
-        output:'stylesheets/styles.css'
+        folder:'styles'
+        output:'styles/styles.css'
         order: [
           'vendor/bootstrap/bootstrap.css'
           'vendor/bootstrap/bootstrap-responsive.css'
