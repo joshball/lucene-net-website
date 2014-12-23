@@ -1,13 +1,133 @@
 ﻿<section>
-    <h2 data-bind="text:displayName"></h2>
-    <blockquote data-bind="text:description"></blockquote>
-    <h3>Features</h3>
-    <ul data-bind="foreach: features">
-        <li data-bind="text:$data"></li>
-    </ul>
-    <div class="alert alert-success">
-      <h4>Read Me Please</h4>
-        For information about this template and for general documenation please visit <a href="http://www.durandaljs.com">the official site</a> and if you can't find 
-        answers to your questions there, we hope you will join our <a href="https://groups.google.com/forum/?fromgroups#!forum/durandaljs">google group</a>.
+    <div class="row">
+
+        <div class="col-lg-9">
+
+            <p>Lucene.Net is a port of the Lucene search engine library, written in C# and targeted at .NET runtime users. The Lucene search library is based on an
+                <a href="http://lucene.sourceforge.net/talks/pisa/">inverted index</a>
+               . Lucene.Net has three primary goals:
+            </p>
+            <ol>
+                <li>Maintain the existing line-by-line port from Java to C#, fully automating and commoditizing the process such that the project can easily synchronize with the Java Lucene release schedule;</li>
+                <li>Maintaining the high-performance requirements expected of a first class C# search engine library;</li>
+                <li>Maximize usability and power when used within the .NET runtime. To that end, it will present a highly idiomatic, carefully tailored API that takes advantage of many of the special features of the .NET runtime.</li>
+            </ol>
+            <h1>Recent News</h1>
+
+            <div id="blogcontent">
+
+                <h2>
+                    <a href="https://blogs.apache.org/lucenenet/entry/lucene_net_3_0_3">Lucene.Net 3.0.3 Released</a>
+                </h2>
+                <div class="section-content">
+                    <p>
+                        Apache Lucene.Net 3.0.3 just passed a vote for release - our first official release since graduating from the incubator in August. A lot of work was put into porting and testing the code. We've brought back .Net 3.5 support and added an entirely new Spatial Contrib project.
+                    </p>
+                    <p>Files can be downloaded from a number of places:</p>
+                    <ul>
+                        <li>SVN Source:
+                            <a href="https://svn.apache.org/repos/asf/lucene.net/tags/Lucene.Net_3_0_3_RC2_final/">https://svn.apache.org/repos/asf/lucene.net/tags/Lucene.Net_3_0_3_RC2_final/</a>
+                        </li>
+                        <li>Downloads:
+                            <a href="http://lucenenet.apache.org/download.cgi">http://lucenenet.apache.org/download.cgi</a>
+                        </li>
+                        <li>Nuget</li>
+                        <ul>
+                            <li>
+                                <a href="https://nuget.org/packages/Lucene.Net/3.0.3">Lucene.Net 3.0.3</a>
+                            </li>
+                            <li>
+                                <a href="https://nuget.org/packages/Lucene.Net.Contrib/3.0.3">Lucene.Net 3.0.3 Contrib</a>
+                            </li>
+                            <li>
+                                <a href="https://nuget.org/packages/Lucene.Net.Contrib.Spatial">Lucene.Net 3.0.3 Contrib Spatial</a>
+                            </li>
+                            <li>
+                                <a href="https://nuget.org/packages/Lucene.Net.Contrib.Spatial.NTS">Lucene.Net 3.0.3 Contrib Spatial.NTS</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <p></p>
+                </div>
+                <hr>
+
+                <h2>
+                    <a href="https://blogs.apache.org/lucenenet/entry/apache_lucene_net_graduates">Apache Lucene.Net Graduates!</a>
+                </h2>
+                <div class="section-content">
+                    <p>Congratulations to the Apache Lucene.Net Developers and Community! We've made it out of incubation.&nbsp;</p>
+                    <p>Seems like a relatively quick road; About a year an a half ago the Lucene.Net project was in danger of being retired. A few people brought it back and Lucene.Net entered the Apache Incubator. We've had a couple of releases, 2.9.2, 2.9.4, 2.9.4g and we're nearly ready to release big changes with 3.0.3. We've added new committers and have worked toward rebuilding our community.</p>
+                    <p>At the August 15th board meeting, the board voted unanimously to accept our graduation resolution, officially moving us out of the Incubator. Over the next couple of weeks, we've be moving all of our resources out of the incubator into our new&nbsp;permanent&nbsp;home, mailing lists will be updated, website update, svn repositories, etc.</p>
+                    <p></p>
+                    <p>~Prescott&nbsp;</p>
+                </div>
+                <hr>
+
+                <h2>
+                    <a href="https://blogs.apache.org/lucenenet/entry/apache_lucene_net_2_91">Apache Lucene.Net 2.9.4g Incubating released</a>
+                </h2>
+                <div class="section-content">
+                    <p>It took about two months to fully roll out the 2.9.4g branch out the door. This release mostly replaces the plumbing of 2.9.4 with the .NET generic classes. One of the many benefits is the ability to use more .NET like code such as foreach (instead of GetEnumerator/MoveNext). There are a couple of API changes to be aware of:</p>
+                    <ul>
+                        <li>StopAnalyzer(List stopWords)</li>
+                        <li>Query.ExtractTerms(ICollection)</li>
+                        <li>TopDocs.TotalHits, TopDocs.ScoreDocsv</li>
+                    </ul>
+                </div>
+                <hr>
+
+                <h2>
+                    <a href="https://blogs.apache.org/lucenenet/entry/apache_lucene_net_2_9">Apache Lucene.Net 2.9.4 Incubating released</a>
+                </h2>
+                <div class="section-content">
+                    <p>We finally got it out the door, it took a lot longer than we expected. However, we have a ton of bug fixes rolled into this relase as well as a number of new features.</p>
+                    <ul>
+                        <li>Some of the bug fixes include: concurrency issues, mono compilation issues, and memory leaks.</li>
+                        <li>A lot of work has been done to clean up the code base, refactoring the code and project files, and providing build scripts</li>
+                        <li>A couple of new features: Search.Regex, Simple Faceted Search, and simple phrase analysis in the Fast Vector Highlighter</li>
+                        <li>Download it now on our
+                            <a href="http://lucenenet.apache.org/download.cgi">downloads page</a>
+                        </li>
+                    </ul>
+                    <p>Just around the corner is a 2.9.4g release (early January), that has been substantially refactored and uses generics across the board.</p>
+                </div>
+                <hr>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-3">
+            <h2 id="who-uses-lucenenet">Who Uses Lucene.Net?</h2>
+            <h3 id="open-source-initiatives">Open Source Initiatives</h3>
+            <ul>
+                <li><a href="http://ireaper.codeplex.com/" rel="nofollow">iReaper</a></li>
+                <li><a href="http://linqtolucene.codeplex.com/" rel="nofollow">Linq to Lucene</a></li>
+                <li><a href="http://lucandranet.codeplex.com/" rel="nofollow">Lucandra.NET</a></li>
+                <li><a href="http://www.mindtouch.com/" rel="nofollow">MindTouch</a></li>
+                <li><a href="http://orchard.codeplex.com/" rel="nofollow">Orchard</a></li>
+                <li><a href="http://ravendb.net/" rel="nofollow">RavenDB</a></li>
+                <li><a href="http://stackoverflow.com/" rel="nofollow">Stackoverflow</a></li>
+                <li><a href="http://subtextproject.com/" rel="nofollow">SubText</a></li>
+                <li><a href="http://umbraco.codeplex.com" rel="nofollow">Umbraco</a></li>
+            </ul>
+
+            <h3 id="commercial-products">Commercial Products</h3>
+            <ul>
+                <li><a href="http://autodesk.com/" rel="nofollow">Autodesk</a></li>
+                <li><a href="http://www.topgear.com/" rel="nofollow">BBC UK Top Gear site</a></li>
+                <li><a href="http://www.epro.com/" rel="nofollow">Epro, Bluewire Technologies</a></li>
+                <li><a href="http://www.adenin.com/" rel="nofollow">IntelliEnterprise Intranet Suite</a></li>
+                <li><a href="http://www.koders.com/" rel="nofollow">Koders.com, Black Duck Software</a></li>
+                <li><a href="http://www.oxan.com" rel="nofollow">Oxford Analytica</a></li>
+                <li><a href="http://discover-e-legal.com/aboutparadigm.html" rel="nofollow">Paradigm</a></li>
+                <li><a href="http://www.powersearchsoftware.com" rel="nofollow">PowerSearch</a></li>
+            </ul>
+
+            <h3 id="and-many-many-more">...and many many more</h3>
+        </div>
+
     </div>
+
 </section>

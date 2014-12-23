@@ -1,0 +1,52 @@
+
+body {
+    font: 14px/1.5 Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #5b656d;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page-host {
+    padding-top: 20px;
+    /*overflow-x: hidden;*/
+    /*overflow-y: auto;*/
+}
+
+.navbar {
+    min-height: 120px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+.navbar-nav {
+    margin-top: 50px !important;
+}
+
+.footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+
+/* SPLASH, borrowed from the durandal starter kit */
+
+.splash {
+    text-align: center;
+    margin: 10% 0 0 0;
+}
+
+.splash .message {
+    font-size: 5em;
+    line-height: 1.5em;
+    -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-transform: uppercase;
+}
+
+.splash .fa-spinner {
+    text-align: center;
+    display: inline-block;
+    font-size: 5em;
+    margin-top: 50px;
+}
