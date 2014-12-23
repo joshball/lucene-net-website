@@ -39,7 +39,6 @@ exports.config =
           { "dist/fonts": "../../fonts" }
           "dist/js/bootstrap.js"
           "dist/css/bootstrap.css"
-          "dist/css/bootstrap-theme.css"
         ]
         "durandal": [
           { js: "durandal" }
@@ -63,13 +62,11 @@ exports.config =
     folders: [
       {
         folder:'styles'
-        output:'styles/styles.css'
+        output:'styles/vendor.css'
         order: [
           'vendor/bootstrap/bootstrap.css'
-          'vendor/bootstrap/bootstrap-responsive.css'
           'vendor/font-awesome/font-awesome.css'
           'vendor/durandal/durandal.css'
-          'lucene.net.css'
         ]
       }
     ]
