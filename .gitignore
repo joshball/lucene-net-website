@@ -9,6 +9,9 @@
 /.node_modules
 /node_modules
 
+# Mimosa manages its own bower components
+/bower_components
+
 # Ignore all logfiles and tempfiles.
 *.log
 /tmp

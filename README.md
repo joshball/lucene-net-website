@@ -12,6 +12,11 @@ Once node is installed, install mimosa globally:
 
 This is the build tool (like grunt/gulp).
 
+If you want to interact with bower:
+
+    npm install -g bower
+
+
 
 ### To run the site locally:
 Use `make start` to start up an asset server and begin coding immediately.
