@@ -13,6 +13,7 @@
                 { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: true },
                 { route: 'started', title:'Getting Started', moduleId: 'viewmodels/started', nav: true },
                 { route: 'download', title:'Download', moduleId: 'viewmodels/download', nav: true },
+                { route: 'contributing', title:'Contribute', moduleId: 'viewmodels/contributing', nav: true },
                 { route: 'community', title:'Community', moduleId: 'viewmodels/community', nav: true },
                 { route: 'links', title:'Useful Links', moduleId: 'viewmodels/links', nav: true }
             ]).buildNavigationModel();
