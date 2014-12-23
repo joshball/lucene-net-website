@@ -35,23 +35,28 @@ exports.config =
   bower:
     copy:
       mainOverrides:
-        "knockout.js":["knockout.js","knockout-2.3.0.debug.js"]
         "bootstrap": [
-          "docs/assets/js/bootstrap.js"
-          "docs/assets/css/bootstrap.css"
-          "docs/assets/css/bootstrap-responsive.css"
-        ]
-        "font-awesome": [
-          { font: "../../font" }
-          "css/font-awesome.css"
-          "css/font-awesome-ie7.css"
+          { "dist/fonts": "../../fonts" }
+          "dist/js/bootstrap.js"
+          "dist/css/bootstrap.css"
+          "dist/css/bootstrap-theme.css"
         ]
         "durandal": [
-          {
-            img: "../../images"
-            js: "durandal"
-            css: "durandal"
-          }
+          { js: "durandal" }
+          { css: "durandal" }
+        ]
+        "durandal-almond":[
+          { "almond.js": "almond-custom.js" }
+        ]
+        "font-awesome": [
+          { fonts: "../../fonts" }
+          "css/font-awesome.css"
+        ]
+        "jquery":[
+          "jquery.js"
+        ]
+        "knockout.js":[
+          "knockout.debug.js"
         ]
 
   combine:
@@ -64,7 +69,7 @@ exports.config =
           'vendor/bootstrap/bootstrap-responsive.css'
           'vendor/font-awesome/font-awesome.css'
           'vendor/durandal/durandal.css'
-          'starterkit.css'
+          'lucene.net.css'
         ]
       }
     ]

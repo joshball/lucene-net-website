@@ -1,5 +1,5 @@
 /**
- * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
+ * almond 0.2.0 Copyright (c) 2011, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
  */
@@ -15,12 +15,7 @@ var requirejs, require, define;
         waiting = {},
         config = {},
         defining = {},
-        hasOwn = Object.prototype.hasOwnProperty,
         aps = [].slice;
-
-    function hasProp(obj, prop) {
-        return hasOwn.call(obj, prop);
-    }
 
     /**
      * Given a relative module name, like ./something, normalize it to
@@ -76,10 +71,6 @@ var requirejs, require, define;
                 //end trimDots
 
                 name = name.join("/");
-            } else if (name.indexOf('./') === 0) {
-                // No baseName, so this is ID is resolved relative
-                // to baseUrl, pull off the leading dot.
-                name = name.substring(2);
             }
         }
 
@@ -159,14 +150,14 @@ var requirejs, require, define;
     }
 
     function callDep(name) {
-        if (hasProp(waiting, name)) {
+        if (waiting.hasOwnProperty(name)) {
             var args = waiting[name];
             delete waiting[name];
             defining[name] = true;
             main.apply(undef, args);
         }
 
-        if (!hasProp(defined, name) && !hasProp(defining, name)) {
+        if (!defined.hasOwnProperty(name) && !defining.hasOwnProperty(name)) {
             throw new Error('No ' + name);
         }
         return defined[name];
@@ -183,12 +174,6 @@ var requirejs, require, define;
             name = name.substring(index + 1, name.length);
         }
         return [prefix, name];
-    }
-
-    function onResourceLoad(name, defined, deps){
-        if(requirejs.onResourceLoad && name){
-            requirejs.onResourceLoad({defined:defined}, {id:name}, deps);
-        }
     }
 
     /**
@@ -291,9 +276,9 @@ var requirejs, require, define;
                 } else if (depName === "module") {
                     //CommonJS module spec 1.1
                     cjsModule = args[i] = handlers.module(name);
-                } else if (hasProp(defined, depName) ||
-                           hasProp(waiting, depName) ||
-                           hasProp(defining, depName)) {
+                } else if (defined.hasOwnProperty(depName) ||
+                           waiting.hasOwnProperty(depName) ||
+                           defining.hasOwnProperty(depName)) {
                     args[i] = callDep(depName);
                 } else if (map.p) {
                     map.p.load(map.n, makeRequire(relName, true), makeLoad(depName), {});
@@ -322,8 +307,6 @@ var requirejs, require, define;
             //worry about defining if have a module name.
             defined[name] = callback;
         }
-
-        onResourceLoad(name, defined, args);
     };
 
     requirejs = require = req = function (deps, callback, relName, forceSync, alt) {
@@ -365,15 +348,9 @@ var requirejs, require, define;
         if (forceSync) {
             main(undef, deps, callback, relName);
         } else {
-            //Using a non-zero value because of concern for what old browsers
-            //do, and latest browsers "upgrade" to 4 if lower value is used:
-            //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
-            //If want a value immediately, use require('id') instead -- something
-            //that works in almond on the global level, but not guaranteed and
-            //unlikely to work in other AMD implementations.
             setTimeout(function () {
                 main(undef, deps, callback, relName);
-            }, 4);
+            }, 15);
         }
 
         return req;
@@ -385,16 +362,8 @@ var requirejs, require, define;
      */
     req.config = function (cfg) {
         config = cfg;
-        if (config.deps) {
-            req(config.deps, config.callback);
-        }
         return req;
     };
-
-    /**
-     * Expose module registry for debugging and tooling
-     */
-    requirejs._defined = defined;
 
     define = function (name, deps, callback) {
 
@@ -407,9 +376,7 @@ var requirejs, require, define;
             deps = [];
         }
 
-        if (!hasProp(defined, name) && !hasProp(waiting, name)) {
-            waiting[name] = [name, deps, callback];
-        }
+        waiting[name] = [name, deps, callback];
     };
 
     define.amd = {
